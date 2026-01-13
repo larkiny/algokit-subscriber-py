@@ -6,7 +6,6 @@ on:
 
 jobs:
   check-python:
-    if: false # Temporarily disabled
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout source code
@@ -30,7 +29,6 @@ jobs:
           poetry build --format wheel
 
   tests:
-    if: false # Temporarily disabled
     runs-on: "ubuntu-latest"
     steps:
       - name: Checkout source code
