@@ -14,5 +14,5 @@
 :titlesonly:
 :maxdepth: 2
 
-apidocs/algokit_subscriber/algokit_subscriber
+/apidocs/algokit_subscriber/algokit_subscriber
 ```

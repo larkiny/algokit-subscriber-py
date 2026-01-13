@@ -17,16 +17,17 @@ pytest = "^8.4.1"
 pre-commit = "^4.2.0"
 black = "^25.1.0"
 pytest-cov = "^6.2.1"
-sphinx = "^8.2.3"
-furo = "^2024.1.29"
-myst-parser = "^4.0.0"
+sphinx = "^8"
+furo = "^2025.12.19"
+myst-parser = "^4.0.1"
 sphinx-autodoc2 = "^0.5.0"
 sphinx-copybutton = "^0.5.2"
-sphinx-autobuild = "^2024.4.16"
+sphinx-autobuild = "^2025.8.25"
 sphinx-mermaid = "^0.0.8"
 poethepoet = "^0.36.0"
 pytest-sugar = "^1.0.0"
 pip-audit = "^2.9.0"
+sphinx-markdown-builder = "^0.6.9"
 
 [build-system]
 requires = ["poetry-core"]
@@ -132,9 +133,12 @@ pythonpath = ["src", "tests"]
 "examples/*" = ["T201"]
 
 [tool.poe.tasks]
+# Documentation tasks
 docs-test = { shell = "sphinx-build -b doctest docs docs/_build -W --keep-going -n -E" }
-docs-clear = { shell = "rm -rf docs/_build" }
+docs-clear = { shell = "rm -rf docs/_build .devportal" }
 docs-build = { shell = "poetry run poe docs-clear && sphinx-build docs docs/_build -W --keep-going -n -E" }
+docs-build-devportal = { shell = "rm -rf .devportal && sphinx-build -b markdown -c docs/_configs/devportal docs .devportal --keep-going -n -E" }
+docs-build-all = { shell = "poetry run poe docs-build && poetry run poe docs-build-devportal" }
 docs-dev = { shell = "poetry run poe docs-build && sphinx-autobuild docs docs/_build" }
 
 [tool.semantic_release]

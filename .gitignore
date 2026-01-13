@@ -4,6 +4,7 @@ __pycache__
 
 /docs/_build/
 /docs/apidocs/
+/.devportal/
 
 .coverage
 coverage.xml
