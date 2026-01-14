@@ -36,9 +36,7 @@ def clean_markdown_title(title: str) -> str:
     title = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", title)
 
     # Remove any remaining brackets or parentheses at edges
-    title = title.strip("[]() ")
-
-    return title
+    return title.strip("[]() ")
 
 
 def extract_title_from_content(content: str, filename: str) -> str:

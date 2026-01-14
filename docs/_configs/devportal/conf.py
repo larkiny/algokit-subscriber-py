@@ -12,7 +12,7 @@ sys.path.insert(0, str(docs_dir))
 sys.path.insert(0, str(docs_dir / "_extensions"))
 
 # Import base configuration
-from conf import *  # noqa: F401, F403
+from conf import *  # noqa: F403, E402  # type: ignore[import-not-found]
 
 # Override project info for devportal context
 project = "algokit-subscriber"
@@ -31,11 +31,11 @@ extensions = [
 ]
 
 # Disable HTML-specific features
-html_static_path = []
-html_css_files = []
+html_static_path: list[str] = []
+html_css_files: list[str] = []
 
 # Devportal doesn't need intersphinx links
-intersphinx_mapping = {}
+intersphinx_mapping: dict[str, tuple[str, str | None]] = {}
 
 # Simpler autodoc2 settings for cleaner markdown
 # Path is relative to the source directory (docs/), not the config directory
